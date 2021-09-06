@@ -47,6 +47,7 @@ M557 X15:215 Y15:195 S20                      ; define mesh grid
 M140 H-1                                      ; disable heated bed (overrides default heater mapping)
 
 ; Fans
+M950 F0 C"out5"								  ; create electronics cooling fan
 
 ; Tools
 

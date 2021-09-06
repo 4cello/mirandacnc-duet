@@ -6,3 +6,4 @@
 G91
 G1 Z15 F500 ; move up 15mm
 G90
+M106 P0 S0 ; turn off electronics fan
