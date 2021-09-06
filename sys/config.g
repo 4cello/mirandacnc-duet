@@ -21,11 +21,11 @@ M569 P2 S0                                    ; physical drive 2 goes backwards 
 M569 P3 S0                                    ; physical drive 3 goes backwards (Y2)
 M584 X0 Y1:3 Z2                               ; set drive mapping
 M350 X8 Y8 Z16 I0                             ; configure microstepping without interpolation
-M92 X506.66 Y506.66 Z1500         			  ; set steps per mm
-M566 X900.00 Y900.00 Z60.00        			  ; set maximum instantaneous speed changes (mm/min)
-M203 X2000.00 Y2000.00 Z1000.00 		      ; set maximum speeds (mm/min)
-M201 X70.00 Y70.00 Z100.00           		  ; set accelerations (mm/s^2)
-M906 X800 Y800 Z800 I30                  	  ; set motor currents (mA) and motor idle factor in per cent
+M92 X506.66 Y506.66 Z1500                     ; set steps per mm
+M566 X900.00 Y900.00 Z60.00                   ; set maximum instantaneous speed changes (mm/min)
+M203 X2000.00 Y2000.00 Z1000.00               ; set maximum speeds (mm/min)
+M201 X70.00 Y70.00 Z100.00                    ; set accelerations (mm/s^2)
+M906 X800 Y800 Z800 I30                       ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                       ; Set idle timeout
 M564 S0 H0                                    ; Allow movement without homing
 
@@ -47,7 +47,7 @@ M557 X15:215 Y15:195 S20                      ; define mesh grid
 M140 H-1                                      ; disable heated bed (overrides default heater mapping)
 
 ; Fans
-M950 F0 C"out5"								  ; create electronics cooling fan
+M950 F0 C"out5"                               ; create electronics cooling fan
 
 ; Tools
 
