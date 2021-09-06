@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode
 
 ### RepRap Firmware
-firmware/
 .rfmbackup
 *.bin
 *.uf2
@@ -12,7 +11,11 @@ robots.txt.gz
 manifest.json.gz
 rfm.exe
 
-
+filaments/
+gcodes/
+menu/
+sys/firmware
+www/
 
 ### VisualStudioCode ###
 .vscode/*
