@@ -21,11 +21,11 @@ M569 P2 S0                                    ; physical drive 2 goes backwards 
 M569 P3 S0                                    ; physical drive 3 goes backwards (Y2)
 M584 X0 Y1:3 Z2                               ; set drive mapping
 M350 X8 Y8 Z16 I0                             ; configure microstepping without interpolation
-M92 X506.66 Y506.66 Z1500                     ; set steps per mm
-M566 X900.00 Y900.00 Z60.00                   ; set maximum instantaneous speed changes (mm/min)
-M203 X2000.00 Y2000.00 Z1000.00               ; set maximum speeds (mm/min)
-M201 X70.00 Y70.00 Z100.00                    ; set accelerations (mm/s^2)
-M906 X800 Y800 Z800 I30                       ; set motor currents (mA) and motor idle factor in per cent
+M92 X506.66 Y506.66 Z1500         			  ; set steps per mm
+M566 X900.00 Y900.00 Z60.00        			  ; set maximum instantaneous speed changes (mm/min)
+M203 X2000.00 Y2000.00 Z1000.00 		      ; set maximum speeds (mm/min)
+M201 X70.00 Y70.00 Z100.00           		  ; set accelerations (mm/s^2)
+M906 X800 Y800 Z800 I30                  	  ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                       ; Set idle timeout
 M564 S0 H0                                    ; Allow movement without homing
 
@@ -34,20 +34,19 @@ M208 X0 Y0 Z0 S1                              ; set axis minima
 M208 X450 Y450 Z200 S0                        ; set axis maxima
 
 ; Endstops
-M574 X1 S1 P"xstop"                           ; configure active-high endstop for low end on X via pin xstop
-M574 Y1 S1 P"ystop"                           ; configure active-high endstop for low end on Y via pin ystop
-M574 Z2 S1 P"zstop"                           ; configure active-high endstop for high end on Z via pin zstop
+M574 X1 S1 P"io0.in"                           ; configure active-high endstop for low end on X via pin xstop
+M574 Y1 S1 P"io1.in"                           ; configure active-high endstop for low end on Y via pin ystop
+M574 Z2 S1 P"io2.in"                           ; configure active-high endstop for high end on Z via pin zstop
 
 ; Z-Probe
-M558 P5 C"^zprobe.in" H5 F120 T30000          ; set Z probe type to switch and the dive height + speeds
-G31 P500 X0 Y0 Z2.5                           ; set Z probe trigger value, offset and trigger height
-M557 X15:215 Y15:195 S20                      ; define mesh grid
+M558 P5 C"!^io3.in" F500:100 H10 A2           ; set Z probe type to switch and the dive height + speeds
+G31 P500 X0 Y0 Z0                             ; set Z probe trigger value, offset and trigger height
 
 ; Heaters
 M140 H-1                                      ; disable heated bed (overrides default heater mapping)
 
 ; Fans
-M950 F0 C"out5"                               ; create electronics cooling fan
+M950 F0 C"out5"								  ; create electronics cooling fan
 
 ; Tools
 
